@@ -2,9 +2,9 @@
 <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Do+Hyeon|Ubuntu" rel="stylesheet">
-    <link type="text/css" href="js/jquery-ui.css" rel="Stylesheet">
-    <link type="text/css" href="js/jquery-ui.structure.css" rel="Stylesheet">
-    <link type="text/css" href="js/jquery-ui.theme.css" rel="Stylesheet">
+    <link type="text/css" href="jquery/jquery-ui.min.css" rel="Stylesheet">
+    <link type="text/css" href="jquery/jquery-ui.structure.min.css" rel="Stylesheet">
+    <link type="text/css" href="jquery/jquery-ui.theme.min.css" rel="Stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,38 +19,39 @@
 					<p onclick="startGame(0)">START</p>
 				</div>
 				<div class="options__item">
-					<p onclick="getInfo">ABOUT</p>
+					<p onclick="getInfo()">ABOUT</p>
 				</div>
 			</div>
 		</div>
 		<div id="boxQuestion" class="box">
-                	<div><img class="questionImage"></div>
-                	<div class="question"></div>
+            <div><img class="questionImage"></div>
+            <div class="question"></div>
 		</div>
 		<div id="boxAnswers" class="box">
 			<button id="option1" class="option" name="0"></button>
 			<button id="option2" class="option" name="1"></button>
 			<button id="option3" class="option" name="2"></button>
-                	<button id="option4" class="option" name="3"></button>
+            <button id="option4" class="option" name="3"></button>
 		</div>
 		<div class="inputForm">
-                	<input id='answer' type="text" placeholder="Введите свой ответ" autofocus>
-                	<button class="checkButton" onclick='checkNoOpt()'>Проверить</button>
-			<button class="checkButton" onclick='skip()'>Пропустить</button>
-            	</div>
+            <input id='answer' type="text" placeholder="Введите свой ответ" autofocus>
+            <button class="button checkButton">Проверить</button>
+			<button class="button skipButton">Пропустить</button>
+        </div>
 	</div>
 	<aside id='aside'>
-        	<i class="far fa-question-circle" onclick="showResult()"></i>
-        	<br>
-        	<i class="far fa-times-circle" onclick="exit()"></i>
-    	</aside>
-	
+        <div id='aside__showResult' class="far fa-question-circle"></div>
+        <br>
+		<div id='aside__exit' class="far fa-times-circle"></div>
+    	</aside>	
+	<div id="resultsModal" title="Результат:" style="display:none">
+	</div>
     	<div id="interactive" class='dragAndDropSection'>
-                <div id="modal" title="Что делать?">            
+            <div id="modal" title="Что делать?">            
                     В фильме "Криминальное чтиво" используется нелинейный способ повествования. Сейчас перед Вами кадры расположены в том порядке, в котором события происходят в фильме. Попробуйте выстроить хронологическую последовательность этих событий.
-                </div>
-                <button id="showPulp"> Посмотреть задание</button>
-				<div id="firstRow" class='row'>
+            </div>
+            <button id="showPulp"> Посмотреть задание</button>
+			<div id="firstRow" class='row'>
                     <div class="blank">1</div>
                     <div class="blank">2</div>
                     <div class="blank">3</div>
@@ -58,25 +59,25 @@
                     <div class="blank">5</div>
                     <div class="blank">6</div>
                     <div class="blank">7</div>
-				</div>
-				<div id="secondRow" class='row'>
+			</div>
+			<div id="secondRow" class='row'>
 				    <div id='pulp4' class="dragPics"><img src="images/pulp1.jpg"></div>
 				    <div id='pulp2' class="dragPics"><img src="images/pulp2.jpg"></div>
-                    			<div id='pulp5' class="dragPics"><img src="images/pulp3.jpg"></div>
+            		<div id='pulp5' class="dragPics"><img src="images/pulp3.jpg"></div>
                     <div id='pulp1' class="dragPics"><img src="images/pulp4.jpg"></div>
                     <div id='pulp3' class="dragPics"><img src="images/pulp5.jpg"></div>
                     <div id='pulp6' class="dragPics"><img src="images/pulp6.jpg"></div>
                     <div id='pulp7' class="dragPics"><img src="images/pulp7.jpg"></div>
-				</div>
+			</div>
     	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
-	<script type="text/template" id="results-template">
-		<div id="currentResults" title="Ваши результаты">            
-                    Сейчас у Вас всего <%result%> верных ответов из 7 возможных. 
+        <script type="text/template" id="results-template">
+		        <div id="currentResults">            
+                    Сейчас у Вас всего <%-result%> верных ответов из 10 возможных. 
                 </div>
-	</script>
-	<script type="text/javascript" src="js/external/jquery/jquery.js"></script>		
-	<script type="text/javascript" src="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+	   </script>
+	   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+	   <script type="text/javascript" src="jquery/jquery.js"></script>		
+	   <script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
+       <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

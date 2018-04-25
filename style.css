@@ -3,7 +3,7 @@
 }
 
 body {
-	background-image: url(curtain-1275200.png);
+	background-image: url(images/curtain.png);
 	box-sizing: border-box;
 }
 
@@ -134,14 +134,14 @@ img {
 
 }
 
-aside{
+aside {
     display: none;
-    margin-top: 50px;
     padding: 15px;
-    width: 200px;
-    float: right;
     color: yellow;
-    font-size: 60px;
+    font-size: 75px;
+    position: absolute;
+    left: 1300px;
+    top: 100px;
 }
 
 input {
@@ -158,11 +158,7 @@ input:focus {
     color: rgba(0, 0, 0, 0.5);
 }
 
-/*button:focus {
-	outline: none;
-} */
-
-.checkButton {
+.button {
     color: grey;
 	padding: 15px;
 	font-size: 19px;
@@ -175,4 +171,12 @@ input:focus {
     margin-top: 15px;
     display: block;
     border-radius: 13px;
+}
+
+.skipButton {
+	background-color: black;
+}
+
+#resultsModal {
+	text-align: center;
 }
