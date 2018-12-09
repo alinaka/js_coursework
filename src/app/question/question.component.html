@@ -1,0 +1,27 @@
+<div *ngIf="questions">
+  <div *ngIf="currentQuestion">
+    <div class="info_panel">
+      <h1>{{ time | time }}</h1>
+      <h3>score: {{ result }}</h3>
+    </div>
+    <div class="container"><img [src]="'assets/'+ currentQuestion.image"></div>
+
+    <div  class="container">
+      <button class="option"
+              *ngFor="let option of currentQuestion.options"
+              (click)="selectAnswer($event.target, option)"
+              [class.active]="option == selected"
+              [class.inactive]="selected ? option != selected : false"
+              [disabled]="selected ? option != selected : false">{{option}}
+      </button>
+    </div>
+  </div>
+
+  <ngx-smart-modal #myModal identifier="myModal">
+    <h1>Title</h1>
+    <br>
+    <p>{{message}}You have {{result}} right answers of total {{questions.length}}.</p>
+    <br>
+    <button (click)="startGame()">Закрыть</button>
+  </ngx-smart-modal>
+</div>

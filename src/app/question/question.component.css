@@ -1,0 +1,62 @@
+.option {
+  color: grey;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 15px;
+  width: 48%;
+  margin-bottom: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  float: left;
+}
+
+.option:hover {
+  background-color: yellow;
+}
+
+.inactive:hover {
+  background-color: inherit;
+}
+
+img {
+  width: 70%;
+  text-align: center;
+}
+
+.question {
+  color: yellow;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 25px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.info_panel {
+  position: absolute;
+  right: 15%;
+  color: yellow;
+  top: 15%;
+}
+
+.active {
+  background-color: yellow;
+  animation: blink 1s ease-in infinite;
+}
+@keyframes blink {
+  100% { opacity: 0; }
+}
+
+.wrong {
+  background-color: red;
+}
+
+.right {
+  background-color: green;
+}
+
+@media (max-width: 767px) {
+  .option {
+    width: 100%;
+  }
+}

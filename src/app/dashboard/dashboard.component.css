@@ -1,0 +1,22 @@
+.header {
+  color: yellow;
+  font-family: 'Black Han Sans', serif!important;
+  font-size: 45px;
+  margin: auto;
+  margin-top: 200px;
+  text-align: center;
+  text-shadow: 5px 5px black;
+}
+
+.options {
+  color: yellow;
+  font-size: 45px;
+  font-family: 'Do Hyeon', sans-serif !important;
+  text-shadow: 5px 5px black !important;
+  text-align: center;
+}
+
+.options__item:hover{
+  border-radius: 30px;
+  filter: drop-shadow(15px 15px 20px white);
+}
