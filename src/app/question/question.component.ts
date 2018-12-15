@@ -72,7 +72,7 @@ export class QuestionComponent implements OnInit {
   }
 
   isAnswerRight(answer) {
-    return answer === this.currentQuestion.options[this.currentQuestion.answer];
+    return answer === this.currentQuestion.answer;
   }
 
   selectAnswer(box, answer) {
@@ -89,9 +89,8 @@ export class QuestionComponent implements OnInit {
   getQuestions(): void {
     this.movieService.getQuestions()
       .subscribe(questions => {
-        // this.questions = questions;
-        // this.currentQuestion = this.questions[0];
-        console.log(questions);
+        this.questions = questions;
+        this.currentQuestion = this.questions[0];
       });
   }
 }

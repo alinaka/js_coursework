@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MovieService {
-  private questionsUrl = 'http://127.0.0.1:3000/api/movies';  // URL to web api
+  private questionsUrl = 'http://127.0.0.1:3000/quiz/movies';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
