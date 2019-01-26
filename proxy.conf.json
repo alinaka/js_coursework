@@ -1,0 +1,10 @@
+{
+  "/omdb": {
+    "target": "http://www.omdbapi.com",
+    "secure": false,
+    "pathRewrite": {
+      "^/omdb": ""
+    },
+    "changeOrigin": true
+  }
+}

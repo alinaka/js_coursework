@@ -1,0 +1,7 @@
+.card-img-left {
+    height: 100%;
+    border-radius: 0 3px 3px 0;
+}
+.card-text {
+    font-size: 0.7rem;
+}

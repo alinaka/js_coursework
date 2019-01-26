@@ -1,0 +1,18 @@
+<div *ngIf="movie && movieInfo">
+  <div class="card flex-md-row mb-4 mt-4 box-shadow h-md-250" style="width: 70rem; margin: auto">
+    <div class="card-body">
+      <h5 class="card-title">{{movie.title}}</h5>
+      <p class="card-text">Year: {{movie.year}}</p>
+      <p class="card-text">International Title: {{movie.internationalTitle}}</p>
+      <p class="card-text">Genre: {{movieInfo.Genre}}</p>
+      <p class="card-text">Country: {{movieInfo.Country}}</p>
+      <p class="card-text">Director: {{movieInfo.Director}}</p>
+      <p class="card-text">Writer: {{movieInfo.Writer}}</p>
+      <p class="card-text">Actors: {{movieInfo.Actors}}</p>
+      <p class="card-text">{{movieInfo.Plot}}</p>
+      <a routerLink="/movie/{{movie.id}}/edit" class="btn btn-primary mr-2" >Edit</a>
+      <a (click)="deleteMovie(movie.id)" class="btn btn-primary">Delete</a>
+    </div>
+    <img class="card-img-right" [src]="movieInfo.Poster" alt="Card image cap">
+  </div>
+</div>

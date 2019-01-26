@@ -1,0 +1,6 @@
+<form *ngIf="movie">
+  <label><input type="text" [(ngModel)]="movie.title" name="title">Title</label>
+  <label><input type="text" [(ngModel)]="movie.internationalTitle" name="internationalTitle">International title</label>
+  <label><input type="text" [(ngModel)]="movie.year" name="year">Year</label>
+  <input type="submit" (click)="updateMovie(movie, movie.id)">
+</form>

@@ -4,8 +4,7 @@
       <h1>{{ time | time }}</h1>
       <h3>score: {{ result }}</h3>
     </div>
-    <div class="container"><img [src]="'assets/'+ currentQuestion.image"></div>
-
+    <div class="container"><img [src]="currentQuestion.image"></div>
     <div  class="container">
       <button class="option"
               *ngFor="let option of currentQuestion.options"
@@ -22,6 +21,6 @@
     <br>
     <p>{{message}}You have {{result}} right answers of total {{questions.length}}.</p>
     <br>
-    <button (click)="startGame()">Закрыть</button>
+    <button class="btn btn-primary" (click)="startGame()">Закрыть</button>
   </ngx-smart-modal>
 </div>
