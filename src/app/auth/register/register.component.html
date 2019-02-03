@@ -1,11 +1,28 @@
 <div class="text-center">
-  <form class="form-signin mt-5" #heroForm="ngForm">
-    <img class="mb-4" src="../../brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <form class="form-signin mt-5 needs-validation" #heroForm="ngForm" novalidate>
     <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
-    <label for="username" class="sr-only">Username</label>
-    <input type="text" id="username" [(ngModel)]="user.username" name="username" class="form-control" placeholder="Username" required autofocus>
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required>
+    <div>
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" id="username" [(ngModel)]="user.username" name="username" class="form-control" placeholder="Username" required autofocus>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+    <div>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required>
+      <div class="invalid-feedback">
+        Please choose a password.
+      </div>
+    </div>
+    <div>
+      <label for="password_check" class="sr-only">Repeat password</label>
+      <input type="password" id="password_check" [class.is-invalid]="user.password !== user.password_check"
+             [(ngModel)]="user.password_check" name="password_check" class="form-control" placeholder="Repeat password" required>
+      <div class="invalid-feedback">
+        Please repeat your password.
+      </div>
+    </div>
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
@@ -27,5 +44,5 @@
     <p>{{message}}</p>
     <br>
     <button class="btn btn-primary" (click)="closeModal()">Закрыть</button>
-  </ngx-smart-modal>
+</ngx-smart-modal>
 

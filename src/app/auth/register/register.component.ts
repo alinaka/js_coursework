@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
+import {User} from "../../user";
 import {NgxSmartModalService} from 'ngx-smart-modal';
 
 @Component({
@@ -10,7 +11,7 @@ import {NgxSmartModalService} from 'ngx-smart-modal';
 })
 export class RegisterComponent implements OnInit {
 
-    user = {};
+    user = new User();
     message;
     errors;
     constructor(private _auth: AuthService,
@@ -20,6 +21,10 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
     }
     register(){
+        if (!this.user.username || !this.user.password || !this.user.password_check ||
+            this.user.password !== this.user.password_check) {
+            return
+        }
         this._auth.registerUser(this.user)
             .subscribe(
                 res => {

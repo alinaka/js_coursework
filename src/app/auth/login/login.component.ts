@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-    model = {};
+    user = new User();
     errors;
 
     constructor(private _auth: AuthService,
@@ -21,7 +21,10 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        this._auth.loginUser(this.model)
+        if (!this.user.username || !this.user.password) {
+            return
+        }
+        this._auth.loginUser(this.user)
             .subscribe(
                 res => {
                     localStorage.setItem('token', res.token);
