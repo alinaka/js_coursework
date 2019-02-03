@@ -1,0 +1,27 @@
+<div *ngIf="message" class="mt-5">
+	<div class="alert alert-success" role="alert">
+  		{{ message }}
+  		Your result: 
+  		{{ scoreResponse.count}} right answers in
+  		{{ scoreResponse.time}}
+	</div>
+</div>
+<div *ngIf="errors" class="mt-5">
+	<div class="alert alert-danger" role="alert">
+	  {{ errors }}
+	</div>
+</div>
+<div class="card text-center mt-5">
+	<img src="https://via.placeholder.com/100" class="card-img" alt="...">
+  <div class="card-header">
+    You're logged in as: {{ username }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Your page</h5>
+    <p class="card-text">Please upload your profile info.</p>
+    <a routerLink="/quiz" class="btn btn-primary">Start game</a>
+  </div>
+  <div class="card-footer text-muted">
+    <button class="btn btn-secondary" (click)="logout()">Logout</button>
+  </div>
+</div>

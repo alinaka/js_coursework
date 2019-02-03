@@ -6,21 +6,28 @@
     </div>
     <div class="container"><img [src]="currentQuestion.image"></div>
     <div  class="container">
-      <button class="option"
-              *ngFor="let option of currentQuestion.options"
-              (click)="selectAnswer($event.target, option)"
-              [class.active]="option == selected"
-              [class.inactive]="selected ? option != selected : false"
-              [disabled]="selected ? option != selected : false">{{option}}
-      </button>
+      <div class="option" *ngFor="let option of currentQuestion.options"
+            (click)="selectAnswer($event.target, option.title)"
+            [class.active]="option.title == selected"
+            [class.inactive]="selected ? option.title != selected : false">
+        {{ option.internationalTitle }}
+        <br>
+        <span class="optionYear">{{option.year}}</span>
+      </div>
     </div>
   </div>
 
-  <ngx-smart-modal #myModal identifier="myModal">
+  <ngx-smart-modal #myModal identifier="myModal" (onClose)="openDashboard()">
     <h1>Title</h1>
     <br>
     <p>{{message}}You have {{result}} right answers of total {{questions.length}}.</p>
     <br>
-    <button class="btn btn-primary" (click)="startGame()">Закрыть</button>
+    <button class="btn btn-primary" (click)="openGame()">Попробовать снова</button>
+    <button class="btn btn-secondary" (click)="saveScore()">Сохранить результат</button>
   </ngx-smart-modal>
+</div>
+<div *ngIf="errors">
+  <div class="alert alert-danger" role="alert">
+    Couldn't connect to server. Please try later.
+  </div>
 </div>

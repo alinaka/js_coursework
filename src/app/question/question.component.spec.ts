@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuestionComponent } from './question.component';
+import {NgxSmartModalService} from "ngx-smart-modal";
 
 describe('QuestionComponent', () => {
   let component: QuestionComponent;
@@ -8,7 +9,7 @@ describe('QuestionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuestionComponent ]
+      declarations: [ QuestionComponent, NgxSmartModalService ]
     })
     .compileComponents();
   }));

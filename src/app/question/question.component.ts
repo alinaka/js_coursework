@@ -18,6 +18,7 @@ export class QuestionComponent implements OnInit {
   time = 50;
   message;
   interval;
+  errors;
 
   constructor(public ngxSmartModalService: NgxSmartModalService,
               private router: Router,
@@ -43,19 +44,32 @@ export class QuestionComponent implements OnInit {
   startGame() {
     this.result = 0;
     this.ngxSmartModalService.getModal('myModal').close();
+  }
+
+  openDashboard() {
+    this.startGame();
     this.router.navigate(['/dashboard']);
   }
 
+  openGame() {
+      this.startGame();
+      this.router.navigate(['/quiz']);
+  }
+
   finishGame() {
+    clearInterval(this.interval);
+    let resultTime = 50 - this.time;
+    localStorage.setItem('score', this.result.toString());
+    localStorage.setItem('time', resultTime.toString());
     this.ngxSmartModalService.getModal('myModal').open();
   }
 
   showNext(box, counter) {
-    this.selected = null;
     box.classList.remove('right');
     box.classList.remove('wrong');
     if (counter <= this.questions.length - 1) {
       this.currentQuestion = this.questions[counter];
+      this.selected = null;
     } else {
       this.finishGame();
     }
@@ -76,6 +90,9 @@ export class QuestionComponent implements OnInit {
   }
 
   selectAnswer(box, answer) {
+    if (this.selected) {
+      return
+    }
     this.selected = answer;
     this.counter++;
     setTimeout(() => {
@@ -91,6 +108,14 @@ export class QuestionComponent implements OnInit {
       .subscribe(questions => {
         this.questions = questions;
         this.currentQuestion = this.questions[0];
+      },
+      errors => {
+        this.errors = errors;
+        console.log(errors);
       });
+  }
+
+  saveScore(){
+    this.router.navigate(['/user'])
   }
 }

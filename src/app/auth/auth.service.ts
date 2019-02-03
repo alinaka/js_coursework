@@ -33,12 +33,6 @@ export class AuthService {
         return localStorage.getItem('token');
     }
 
-    isLoggedIn(){
-        let user = this.isTokenExpired();
-        return this.isTokenExpired().pipe(
-            map(response => response.ok));
-    }
-
     isTokenExpired() {
         return this.http.get<any>(this._tokenexp);
     }

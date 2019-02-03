@@ -1,6 +1,6 @@
 export class Question {
   id: number;
-  options: Array<string>;
+  options: Array<object>;
   answer: string;
   image: string;
 }

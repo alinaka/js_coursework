@@ -5,9 +5,16 @@
   font-size: 15px;
   width: 48%;
   margin-bottom: 15px;
+  margin-left: 15px;
   font-family: 'Ubuntu', sans-serif;
   border: none;
   float: left;
+  background-color: white;
+  text-align: center;
+}
+
+.optionYear {
+  font-size: 14px;
 }
 
 .option:hover {
@@ -15,7 +22,7 @@
 }
 
 .inactive:hover {
-  background-color: inherit;
+  background-color: white;
 }
 
 img {

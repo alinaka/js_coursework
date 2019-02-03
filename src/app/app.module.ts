@@ -19,6 +19,8 @@ import { MoviesComponent } from './admin/movies/movies.component';
 import { MovieEditComponent } from './admin/movie-edit/movie-edit.component';
 import { MovieViewComponent } from './admin/movie-view/movie-view.component';
 import { MainPageComponent } from './admin/main-page/main-page.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { MainPageComponent } from './admin/main-page/main-page.component';
     MovieEditComponent,
     MovieViewComponent,
     MainPageComponent,
+    NotfoundComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

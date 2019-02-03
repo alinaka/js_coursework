@@ -10,7 +10,8 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-    model = new User(18, 'Dr IQ', 'ChuckOverstreet');
+    model = {};
+    errors;
 
     constructor(private _auth: AuthService,
                 private _router: Router) {
@@ -24,9 +25,16 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 res => {
                     localStorage.setItem('token', res.token);
-                    this._router.navigate(['/admin'])
+                    localStorage.setItem('user', JSON.stringify(res.user));
+                    if (res.isAdmin){
+                        this._router.navigate(['/admin'])
+                    } else {
+                        this._router.navigate(['/user'])
+                    }
                 },
-                err => console.log(err)
+                err => {
+                    this.errors = err.error.message;
+                }
             )
     }
 
