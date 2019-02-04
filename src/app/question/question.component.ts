@@ -75,10 +75,41 @@ export class QuestionComponent implements OnInit {
     }
   }
 
+  passFrame() {
+      this.counter++;
+      if (this.counter <= this.questions.length - 1) {
+          this.currentQuestion = this.questions[this.counter];
+          this.selected = null;
+      } else {
+          this.finishGame();
+      }
+  }
+
+  removeWrong(){
+      let wrong = [];
+      for (let i = 0; i < this.currentQuestion.options.length; i++){
+        if (this.currentQuestion.options[i].title !== this.currentQuestion.answer){
+          wrong.push(this.currentQuestion.options[i].title);
+        }
+      }
+      for (let i = 0; i < 2; i++){
+          let index = Math.floor( Math.random()*wrong.length );
+          for (let i = 0; i < this.currentQuestion.options.length; i++){
+              if (this.currentQuestion.options[i].title === wrong[index]){
+                  wrong.splice(index, 1);
+                  this.currentQuestion.options[i].internationalTitle = '';
+                  this.currentQuestion.options[i].year = '';
+                  break;
+              }
+          }
+      }
+  }
+
   checkAnswer(box, answer) {
     box.classList.remove('active');
     if (this.isAnswerRight(answer)) {
       this.result++;
+      this.time = this.time + 5;
       box.classList.add('right');
     } else {
       box.classList.add('wrong');

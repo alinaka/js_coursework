@@ -3,7 +3,8 @@
   border-radius: 15px;
   padding: 15px;
   font-size: 15px;
-  width: 48%;
+  width: 520px;
+  height: 75px;
   margin-bottom: 15px;
   margin-left: 15px;
   font-family: 'Ubuntu', sans-serif;
@@ -26,8 +27,9 @@
 }
 
 img {
-  width: 70%;
   text-align: center;
+  width: 100%;
+  vertical-align: middle;
 }
 
 .question {
@@ -41,7 +43,7 @@ img {
 
 .info_panel {
   position: absolute;
-  right: 15%;
+  right: 10%;
   color: yellow;
   top: 15%;
 }
@@ -66,4 +68,12 @@ img {
   .option {
     width: 100%;
   }
+}
+
+.frame_container {
+  width: 725px;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  min-width: 725px;
 }

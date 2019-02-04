@@ -14,7 +14,11 @@ export class ScoreService {
   	let result = {
   		score: score,
   		time: time
-  	}
+  	};
     return this.http.post<any>(this.scoreUrl, result);
+  }
+
+  getAllScores(): Observable<any> {
+    return this.http.get<any>(this.scoreUrl);
   }
 }

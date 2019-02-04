@@ -1,0 +1,21 @@
+<div *ngIf="scores">
+  <h3 class="mt-3 mb-3">Leaderboard</h3>
+  <table class="table table-light">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">Result</th>
+      <th scope="col">Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let score of scores; index as i">
+      <td scope="col">{{ i + 1 }}</td>
+      <td scope="col">{{ score.User.username }}</td>
+      <td scope="col">{{ score.count }}</td>
+      <td scope="col">{{ score.time }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

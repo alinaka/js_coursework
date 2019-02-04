@@ -1,0 +1,27 @@
+    <div *ngIf="message" class="mt-5">
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+    </div>
+        <div *ngIf="errors" class="mt-5">
+      <div class="alert alert-danger" role="alert">
+        {{ errors }}
+      </div>
+    </div>
+
+<h3>Add a new frame</h3>
+<form *ngIf="movies">
+  <div class="form-group">
+      <label for="file">Choose File</label>
+      <input type="file"
+             id="file"
+             (change)="handleFileInput($event.target.files)">
+  </div>
+  <div class="form-group">
+    <label for="movieSelect">Select a movie</label>
+    <select class="form-control" id="movieSelect" name="movieId" [(ngModel)]="movieId">
+      <option *ngFor="let movie of movies" value="{{movie.id}}" >{{movie.internationalTitle}}</option>
+    </select>
+  </div>
+  <input type="submit" (click)="uploadFileToActivity()">
+</form>

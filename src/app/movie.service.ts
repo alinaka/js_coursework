@@ -10,6 +10,7 @@ export class MovieService {
     private questionsUrl = 'http://127.0.0.1:3000/api/movies';  // URL to web api
     private moviesUrl = 'http://127.0.0.1:3000/api/admin/movies';
     private movieUrl = 'http://127.0.0.1:3000/api/admin/movie/';
+    private frameUrl = 'http://127.0.0.1:3000/api/admin/upload/';
     private openMovie = '/omdb/';
 
     constructor(private http: HttpClient) {
@@ -36,7 +37,18 @@ export class MovieService {
         return this.http.put<any>(this.movieUrl + movieId, movie)
     }
 
+    createMovie(movie): Observable<any> {
+        return this.http.post<any>(this.movieUrl, movie)
+    }
+
     deleteMovie(movieId): Observable<any> {
         return this.http.delete<any>(this.movieUrl + movieId, movieId)
+    }
+
+    addFrame(file, movieId): Observable<any> {
+        const formData: FormData = new FormData();
+        formData.append('frame', file, file.name);
+        formData.append('movieId', movieId);
+        return this.http.post<any>(this.frameUrl, formData);
     }
 }

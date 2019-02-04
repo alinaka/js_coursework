@@ -3,8 +3,10 @@
     <div class="info_panel">
       <h1>{{ time | time }}</h1>
       <h3>score: {{ result }}</h3>
+      <button type="button" class="btn btn-warning" (click)="passFrame()">Pass</button>
+      <button type="button" class="btn btn-outline-danger ml-3" (click)="removeWrong()">50/50</button>
     </div>
-    <div class="container"><img [src]="currentQuestion.image"></div>
+    <div class="frame_container mt-3 mb-3"><img [src]="currentQuestion.image"></div>
     <div  class="container">
       <div class="option" *ngFor="let option of currentQuestion.options"
             (click)="selectAnswer($event.target, option.title)"
@@ -18,7 +20,7 @@
   </div>
 
   <ngx-smart-modal #myModal identifier="myModal" (onClose)="openDashboard()">
-    <h1>Title</h1>
+    <h1>Game over</h1>
     <br>
     <p>{{message}}You have {{result}} right answers of total {{questions.length}}.</p>
     <br>

@@ -20,8 +20,12 @@
     <h5 class="card-title">Your page</h5>
     <p class="card-text">Please upload your profile info.</p>
     <a routerLink="/quiz" class="btn btn-primary">Start game</a>
-  </div>
-  <div class="card-footer text-muted">
-    <button class="btn btn-secondary" (click)="logout()">Logout</button>
+      <button class="btn btn-secondary ml-5" (click)="logout()">Logout</button>
   </div>
 </div>
+<div *ngIf="errors">
+	<div class="alert alert-danger" role="alert">
+		Couldn't connect to server. Please try later.
+	</div>
+</div>
+<app-leaderboard></app-leaderboard>

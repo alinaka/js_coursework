@@ -1,0 +1,17 @@
+    <div *ngIf="message" class="mt-5">
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+    </div>
+        <div *ngIf="errors" class="mt-5">
+      <div class="alert alert-danger" role="alert">
+        {{ errors }}
+      </div>
+    </div>
+
+<form>
+  <label><input type="text" [(ngModel)]="movie.title" name="title">Title</label>
+  <label><input type="text" [(ngModel)]="movie.internationalTitle" name="internationalTitle">International title</label>
+  <label><input type="text" [(ngModel)]="movie.year" name="year">Year</label>
+  <input type="submit" (click)="createMovie(movie)">
+</form>
