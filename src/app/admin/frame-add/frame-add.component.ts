@@ -12,6 +12,7 @@ export class FrameAddComponent implements OnInit {
   message;
   movies;
   movieId;
+  errors;
 
   constructor(private movieService: MovieService) { }
 
