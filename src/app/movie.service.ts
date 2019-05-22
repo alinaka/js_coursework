@@ -2,15 +2,17 @@ import {Injectable} from '@angular/core';
 import {Question} from './question';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class MovieService {
-    private questionsUrl = 'http://127.0.0.1:3000/api/movies';  // URL to web api
-    private moviesUrl = 'http://127.0.0.1:3000/api/admin/movies';
-    private movieUrl = 'http://127.0.0.1:3000/api/admin/movie/';
-    private frameUrl = 'http://127.0.0.1:3000/api/admin/upload/';
+    private baseUrl = environment.apiUrl;
+    private questionsUrl = this.baseUrl + 'api/movies';  // URL to web api
+    private moviesUrl = this.baseUrl + 'api/admin/movies';
+    private movieUrl = this.baseUrl + 'api/admin/movie/';
+    private frameUrl = this.baseUrl + 'api/admin/upload/';
     private openMovie = '/omdb/';
 
     constructor(private http: HttpClient) {
