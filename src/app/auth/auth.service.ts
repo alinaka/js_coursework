@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {map} from "rxjs/operators";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-    private _reqisterUrl = 'http://localhost:3000/api/auth/register';
-    private _loginUrl = 'http://localhost:3000/api/auth/login';
-    private _tokenexp = 'http://localhost:3000/api/auth/token';
+	private baseUrl = environment.apiUrl;
+    private _reqisterUrl = this.baseUrl + 'api/auth/register';
+    private _loginUrl = this.baseUrl + 'api/auth/login';
+    private _tokenexp = this.baseUrl + 'api/auth/token';
 
     constructor(private http: HttpClient,
                 private _router: Router) {
